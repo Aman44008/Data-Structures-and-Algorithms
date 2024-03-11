@@ -95,7 +95,7 @@ void PrintList(Node *head){
 
 void PrintListReverse(Node* prev){
     while(prev != NULL){
-        cout<<prev->data<<" <-- "
+        cout<<prev->data<<" <-- ";
         prev = prev->pre;
     }
     cout<<"NULL"<<endl;
