@@ -25,6 +25,9 @@ Node *InsertAtEnd(Node *head, int x){
     return head;
 }
 
+// Approach 1 using extra space( Naive Solution )
+// T.C. = O(2n)~ O(n) ---> requires two time traversal of linked list 
+// S.C. = O(n) ---> require Array 
 Node *ReverseLLMethodOne(Node *head){
     if(head == NULL && head->next == NULL){
         return head;
@@ -40,6 +43,24 @@ Node *ReverseLLMethodOne(Node *head){
         vec.pop_back();
     }
     return head;
+}
+
+// Approach 2 without using extra space and equire only one time traversal
+// T.C. = O(n)
+// S.C = O(1)
+Node *ReverseLLMethodTwo(Node *head){
+    if(head == NULL && head->next == NULL){
+        return head;
+    }
+    Node *curr = head;
+    Node *prev = NULL;
+    while(curr != NULL){
+        Node *next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    } 
+    return prev;
 }
 
 void printList(Node *head){
@@ -63,7 +84,8 @@ int main(){
     }
     printList(head);
     
-    head = ReverseLLMethodOne(head);
+    // head = ReverseLLMethodOne(head); //Approach 1
+    head = ReverseLLMethodTwo(head); // Approach 2
     cout<<"Reversed Linked List :- "<<endl;
     printList(head);
 
