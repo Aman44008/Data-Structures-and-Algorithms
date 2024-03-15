@@ -29,7 +29,7 @@ Node *InsertAtEnd(Node *head, int x){
 // T.C. = O(2n)~ O(n) ---> requires two time traversal of linked list 
 // S.C. = O(n) ---> require Array 
 Node *ReverseLLMethodOne(Node *head){
-    if(head == NULL && head->next == NULL){
+    if(head == NULL || head->next == NULL){
         return head;
     }
 
@@ -49,7 +49,7 @@ Node *ReverseLLMethodOne(Node *head){
 // T.C. = O(n)
 // S.C = O(1)
 Node *ReverseLLMethodTwo(Node *head){
-    if(head == NULL && head->next == NULL){
+    if(head == NULL || head->next == NULL){
         return head;
     }
     Node *curr = head;
@@ -77,7 +77,7 @@ int main(){
 
     Node *head = NULL;
 
-    for(int i = 0; i < 4; i++){
+    for(int i = 0; i < 1; i++){
         int x ;
         cin>>x;
         head = InsertAtEnd(head, x);
