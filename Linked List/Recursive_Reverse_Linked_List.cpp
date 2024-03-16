@@ -36,6 +36,15 @@ Node *Revrse_LL_Method_One(Node *head){
     return new_head;
 }
 
+Node *Revrse_LL_Method_Two(Node *curr, Node *prev){
+    if(curr == NULL) return prev;
+
+    Node *next = curr->next;
+    curr->next = prev;
+    return Revrse_LL_Method_Two(next, curr);
+
+}
+
 void printList(Node *head){
     if(head == NULL) cout<<"NULL"<<endl;
 
@@ -56,7 +65,7 @@ int main(){
         head = InsertAtEnd(head, x);
     }
     printList(head);
-    head = Revrse_LL_Method_One(head);
+    head = Revrse_LL_Method_Two(head, NULL);
     cout<<"Reversed Linked List :- "<<endl;
     printList(head);
  
