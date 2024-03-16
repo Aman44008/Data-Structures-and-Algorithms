@@ -65,6 +65,7 @@ int main(){
         head = InsertAtEnd(head, x);
     }
     printList(head);
+    // head = Revrse_LL_Method_One(head);
     head = Revrse_LL_Method_Two(head, NULL);
     cout<<"Reversed Linked List :- "<<endl;
     printList(head);
