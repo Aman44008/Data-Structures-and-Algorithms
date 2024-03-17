@@ -25,6 +25,10 @@ Node *InsertAtEnd(Node *head, int x){
     return head;
 }
 
+
+// Recursive Approach
+// T.C. = O(n)
+// Auxilary Space = O(n/k)
 Node *Reverse_In_Group_Recusive_Solution(Node *head, int k){
     Node *curr = head, *next = NULL, *prev = NULL;
     int count = 0;
@@ -43,6 +47,10 @@ Node *Reverse_In_Group_Recusive_Solution(Node *head, int k){
     return prev;
 }
 
+
+// Iterative Approach
+// T.C. = O(n)
+// S.C. = O(1)
 Node *Reverse_In_Group_Itretive_Solution(Node *head, int k){
     Node *curr = head, *prevFirst = NULL;
     bool isFirstPass = true;
