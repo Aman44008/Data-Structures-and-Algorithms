@@ -43,6 +43,31 @@ Node *Reverse_In_Group_Recusive_Solution(Node *head, int k){
     return prev;
 }
 
+Node *Reverse_In_Group_Itretive_Solution(Node *head, int k){
+    Node *curr = head, *prevFirst = NULL;
+    bool isFirstPass = true;
+    while(curr != NULL){
+        Node *first = curr, *prev = NULL;
+        int count = 0;
+        while(curr != NULL && count < k){
+            Node *next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+            count++;
+        }
+        if(isFirstPass){
+            head = prev;
+            isFirstPass = false;
+        }
+        else{
+            prevFirst->next = prev;
+        }
+        prevFirst = first;
+    }
+    return head;
+}
+
 void printList(Node *head){
     if(head == NULL) cout<<"NULL"<<endl;
 
@@ -68,7 +93,8 @@ int main(){
     cin>>k;
     printList(head);
     cout<<"After Reversing in group of "<<k<<endl;
-    head =Reverse_In_Group_Recusive_Solution(head, k);
+    // head =Reverse_In_Group_Recusive_Solution(head, k);
+    head =Reverse_In_Group_Itretive_Solution(head, k);
 
     printList(head);
 
