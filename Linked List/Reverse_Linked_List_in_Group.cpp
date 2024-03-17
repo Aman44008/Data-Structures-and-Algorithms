@@ -25,7 +25,23 @@ Node *InsertAtEnd(Node *head, int x){
     return head;
 }
 
+Node *Reverse_In_Group_Recusive_Solution(Node *head, int k){
+    Node *curr = head, *next = NULL, *prev = NULL;
+    int count = 0;
+    while(curr!=NULL && count < k){
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+        count++;
+    }
+    if(next != NULL){
+        Node *new_head = Reverse_In_Group_Recusive_Solution(next, k);
+        head->next = new_head;
 
+    }
+    return prev;
+}
 
 void printList(Node *head){
     if(head == NULL) cout<<"NULL"<<endl;
@@ -42,13 +58,19 @@ int main(){
 
     Node *head = NULL;
 
-    for(int i = 0; i < 6; i++){
+    for(int i = 0; i < 8; i++){
         int x ;
         cin>>x;
         head = InsertAtEnd(head, x);
     }
-    printList(head);
 
+    int k;
+    cin>>k;
+    printList(head);
+    cout<<"After Reversing in group of "<<k<<endl;
+    head =Reverse_In_Group_Recusive_Solution(head, k);
+
+    printList(head);
 
  
     return 0;
