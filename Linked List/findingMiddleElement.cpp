@@ -32,11 +32,13 @@ Node *InsertAtEnd(Node *head, int x){
 void MiddleElement(Node *head){
     if(head == NULL) return ;
     int count = 0;
+    
     Node *curr = head;
     while(curr != NULL){
         count++;
         curr = curr->next;
     }
+
     curr = head;
     for(int i = 0; i < count/2; i++){
         curr = curr->next;
