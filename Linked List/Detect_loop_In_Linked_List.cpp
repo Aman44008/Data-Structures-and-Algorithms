@@ -107,6 +107,22 @@ bool isLoop_method_three(Node *head){
     return false;
 }
 
+// Approach 4: Hashing
+// T.C. = O(n)
+// S.C. = O(n)
+bool isLoop_method_four(Node *head){
+    if(head == NULL) return false;
+    unordered_set<Node*> st;
+    for(Node *curr= head; curr != NULL; curr = curr->next){
+        if(st.find(curr) != st.end()){
+            return true;
+        }
+
+        st.insert(curr);
+    }
+    return false;
+}
+
 int main(){
 
     Node *head = NULL;
@@ -114,9 +130,9 @@ int main(){
     for(int i = 0; i < 6; i++){
         int x ;
         cin>>x;
-        head = InsertAtEnd(head, x);
+        head = insertAtEnd(head, x);
     }
-    if(isLoop_method_three(head)){
+    if(isLoop_method_four(head)){
         cout<<"True";
     }
     else{
