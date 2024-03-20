@@ -9,7 +9,10 @@ struct Node{
         next = NULL;
     }
 };
-///<-------------Singly Linked List without Loop ----------->
+
+//<-------------Singly Linked List without Loop ----------->
+// With this function there is no loop exists becacause this is
+// a singly linked list...
 // Node *InsertAtEnd(Node *head, int x){
 //     Node *temp = new Node(x);
 //     if(head == NULL){
@@ -27,6 +30,8 @@ struct Node{
 
 
 //<-----------------Circular linked list ------------>
+// when we take input with this function there is always exists a loop because
+// this is a circular singly linked list..
 Node *insertAtEnd(Node *head, int x){
     Node *temp = new Node(x);
     if(head == NULL){
@@ -41,6 +46,10 @@ Node *insertAtEnd(Node *head, int x){
     return temp;
 }
 
+
+// Approach 1: Naive Solution
+// T.C. = O(n^2)
+// S.C. = O(1)
 bool isLoop_method_one(Node *head){
     if(head == NULL){
         return false;
@@ -55,6 +64,10 @@ bool isLoop_method_one(Node *head){
         }
     }
     return false;
+}
+
+bool isLoop_method_two(Node *head){
+
 }
 
 
