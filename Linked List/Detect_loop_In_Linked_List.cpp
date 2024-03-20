@@ -4,9 +4,11 @@ using namespace std;
 struct Node{
     int data;
     Node *next;
+    bool visited;
     Node(int x){
         data = x;
         next = NULL;
+        visited = false;
     }
 };
 
@@ -70,6 +72,16 @@ bool isLoop_method_one(Node *head){
 // T.C. = O(n)
 bool isLoop_method_two(Node *head){
     if(head == NULL) return false;
+
+    Node *curr= head;
+    while(curr != NULL){
+        if(curr->visited == true){
+            return true;
+        }
+        curr->visited = true;
+        curr = curr->next;
+    }
+    return false;
 }
 
 
@@ -80,9 +92,9 @@ int main(){
     for(int i = 0; i < 6; i++){
         int x ;
         cin>>x;
-        head = insertAtEnd(head, x);
+        head = InsertAtEnd(head, x);
     }
-    if(isLoop_method_one(head)){
+    if(isLoop_method_two(head)){
         cout<<"True";
     }
     else{
