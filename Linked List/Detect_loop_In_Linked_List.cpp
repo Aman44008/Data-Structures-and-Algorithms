@@ -13,20 +13,20 @@ struct Node{
 //<-------------Singly Linked List without Loop ----------->
 // With this function there is no loop exists becacause this is
 // a singly linked list...
-// Node *InsertAtEnd(Node *head, int x){
-//     Node *temp = new Node(x);
-//     if(head == NULL){
-//         return temp;
-//     }
+Node *InsertAtEnd(Node *head, int x){
+    Node *temp = new Node(x);
+    if(head == NULL){
+        return temp;
+    }
 
-//     Node *curr = head;
-//     while(curr->next != NULL){
-//         curr = curr->next;
-//     }
+    Node *curr = head;
+    while(curr->next != NULL){
+        curr = curr->next;
+    }
 
-//     curr->next = temp;
-//     return head;
-// }
+    curr->next = temp;
+    return head;
+}
 
 
 //<-----------------Circular linked list ------------>
@@ -69,7 +69,7 @@ bool isLoop_method_one(Node *head){
 // if modification to linked list structure are allowed.
 // T.C. = O(n)
 bool isLoop_method_two(Node *head){
-
+    if(head == NULL) return false;
 }
 
 
@@ -82,8 +82,12 @@ int main(){
         cin>>x;
         head = insertAtEnd(head, x);
     }
-    
-    cout<<isLoop_method_one(head);
+    if(isLoop_method_one(head)){
+        cout<<"True";
+    }
+    else{
+        cout<<"False";
+    }
  
     return 0;
 }
