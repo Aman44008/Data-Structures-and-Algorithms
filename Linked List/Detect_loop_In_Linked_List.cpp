@@ -65,7 +65,9 @@ bool isLoop_method_one(Node *head){
     }
     return false;
 }
-
+// Approach 2 : Modification in structure of Linked List
+// if modification to linked list structure are allowed.
+// T.C. = O(n)
 bool isLoop_method_two(Node *head){
 
 }
