@@ -84,6 +84,28 @@ bool isLoop_method_two(Node *head){
     return false;
 }
 
+// Approach 3: Modification of linked list pointers/reference
+// T.C. = O(n)
+bool isLoop_method_three(Node *head){
+    if(head == NULL) return false;
+
+    Node *temp = new Node(0);
+    Node *curr= head;
+
+    while(curr != NULL){
+        if(curr->next == NULL){
+            return false;
+        }
+        if(curr->next == temp){
+            return true;
+        }
+
+        Node *curr_next = curr->next;
+        curr->next = temp;
+        curr = curr_next;
+    }
+    return false;
+}
 
 int main(){
 
@@ -94,7 +116,7 @@ int main(){
         cin>>x;
         head = InsertAtEnd(head, x);
     }
-    if(isLoop_method_two(head)){
+    if(isLoop_method_three(head)){
         cout<<"True";
     }
     else{
