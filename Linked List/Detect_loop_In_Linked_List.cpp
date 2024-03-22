@@ -31,7 +31,7 @@ Node *InsertAtEnd(Node *head, int x){
 }
 
 
-//<-----------------Circular linked list ------------>
+//<-----------------Circular singly linked list ------------>
 // when we take input with this function there is always exists a loop because
 // this is a circular singly linked list..
 Node *insertAtEnd(Node *head, int x){
