@@ -48,7 +48,8 @@ Node *insertAtEnd(Node *head, int x){
 }
 
 
-
+// Floyd Cycle Detecction
+// T.C. = (n + m) ~ O(n);
 bool isLoop(Node *head){
     if(head == NULL) return false;
     Node *slow = head, *fast = head;
